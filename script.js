@@ -18,6 +18,7 @@ function addTask() {
 
   ul.appendChild(li);
   localStorage.setItem("tasks", ul.innerHTML);
+  inputEl.value = "";
 }
 
 ul.innerHTML = localStorage.getItem("tasks") || "";
