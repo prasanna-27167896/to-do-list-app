@@ -7,7 +7,6 @@ function addTask() {
     alert("Please enter a to-do task");
     return;
   }
-
   const li = document.createElement("li");
   li.innerHTML = `<button class="button">🧹</button> <span>${inputEl.value}</span>`;
 
@@ -20,7 +19,6 @@ function addTask() {
   localStorage.setItem("tasks", ul.innerHTML);
   inputEl.value = "";
 }
-
 ul.innerHTML = localStorage.getItem("tasks") || "";
 
 ul.querySelectorAll("li button").forEach((button) => {
