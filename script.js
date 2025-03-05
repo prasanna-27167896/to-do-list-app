@@ -1,37 +1,32 @@
-let inputEl = document.getElementById("input");
-let btnEl = document.getElementById("btn");
-let ul = document.getElementById("list");
+const inputEl = document.getElementById("input");
+const buttonEl = document.getElementById("btn");
+const ul = document.getElementById("list");
 
 function addTask() {
   if (!inputEl.value.trim()) {
-    alert("please enter the task");
-  } else {
-    //create elementss
-
-    const newList = document.createElement("li");
-
-    const check = document.createElement("button");
-    check.classList.add("dynamic");
-    check.addEventListener("click", () => {
-      span.classList.toggle("completed", check.checked);
-      check.classList.toggle("check-btn", check.checked);
-    });
-
-    const span = document.createElement("span");
-    span.textContent = inputEl.value;
-
-    const button = document.createElement("button");
-    button.textContent = "🧹";
-    button.classList.add("button");
-    button.addEventListener("click", () => {
-      newList.remove();
-    });
-
-    newList.appendChild(check);
-    newList.appendChild(span);
-    newList.appendChild(button);
-
-    ul.appendChild(newList);
+    alert("Please enter a to-do task");
+    return;
   }
-  inputEl.value = "";
+
+  const li = document.createElement("li");
+  li.innerHTML = `<button class="button">🧹</button> <span>${inputEl.value}</span>`;
+
+  li.querySelector("button").addEventListener("click", () => {
+    li.remove();
+    localStorage.setItem("tasks", ul.innerHTML);
+  });
+
+  ul.appendChild(li);
+  localStorage.setItem("tasks", ul.innerHTML);
 }
+
+ul.innerHTML = localStorage.getItem("tasks") || "";
+
+ul.querySelectorAll("li button").forEach((button) => {
+  button.addEventListener("click", () => {
+    button.parentElement.remove();
+    localStorage.setItem("tasks", ul.innerHTML);
+  });
+});
+
+buttonEl.addEventListener("click", addTask);
