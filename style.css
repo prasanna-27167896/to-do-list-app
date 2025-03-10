@@ -24,7 +24,7 @@ body {
   border-radius: 5px;
   box-shadow: 5px -5px 5px rgb(248, 140, 233);
   outline: 2px solid white;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .app h1 {
   color: rgb(150, 43, 43);
@@ -49,6 +49,7 @@ body {
   border-radius: 7px;
   background-color: rgb(172, 229, 237);
   color: black;
+  outline: none;
   font-size: 22px;
 }
 
@@ -73,22 +74,6 @@ body {
   transition: 0.4s;
 }
 
-.dynamic {
-  width: 25px;
-  height: 25px;
-  border: 3px solid #555;
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  top: 17%;
-  left: 5px;
-  transition: all 0.3s ease-in-out;
-  border-color: #ff9800;
-}
-.dynamic:hover {
-  border-color: lightseagreen;
-}
-
 #list {
   overflow: auto;
   position: relative;
@@ -108,11 +93,34 @@ ul li {
   position: relative;
   list-style-type: none;
   text-transform: capitalize;
-  font-size: 15px;
+  font-size: 10px;
   width: 520px;
   text-align: left;
-  height: 30px;
+  height: 40px;
   margin-left: 2px;
+  margin-bottom: 16px;
+  margin-top: 5px;
+}
+
+.para {
+  background-color: rgb(155, 186, 202);
+  padding: 5px 5px 5px 25px;
+  border-radius: 5px;
+  outline: 2px solid black;
+  outline-offset: 1px;
+  color: black;
+  cursor: pointer;
+  position: relative;
+  list-style-type: none;
+  text-transform: capitalize;
+  font-size: 10px;
+  width: 520px;
+  text-align: left;
+  height: 40px;
+  margin-left: 42px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 span {
@@ -120,16 +128,17 @@ span {
   font-weight: bold;
   flex-grow: 1;
   position: absolute;
-  left: 50px;
-  top: 7px;
+  left: 30px;
+  top: 13px;
   display: inline-block;
-  max-width: 460px;
+  max-width: 470px;
   scroll-behavior: smooth;
   overflow: auto;
   scrollbar-width: none;
 }
 
-.button {
+.button,
+.btn2 {
   background-color: rgb(155, 186, 202);
   color: white;
   border: transparent;
@@ -138,8 +147,18 @@ span {
   border-radius: 5px;
   position: absolute;
   right: 0;
-  top: 3px;
+  top: 5px;
   font-size: 18px;
+}
+
+.btn2 {
+  top: 7px;
+}
+
+.btn2:hover {
+  transition: 0.2s;
+  background-color: red;
+  border-radius: 50%;
 }
 
 .button:hover {
